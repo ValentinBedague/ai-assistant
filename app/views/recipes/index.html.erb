@@ -1,7 +1,9 @@
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Create a recipe
-  </div>
+  <%= link_to new_recipe_path, class: "text-decoration-none" do %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      Create a recipe
+    </div>
+  <% end %>
 
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
     Import a recipe from the web
@@ -14,37 +16,17 @@
 
 <div class="text-center my-5">
   <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col">
-      <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-        <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
-        <div class="card-body">
-          <h5 class="card-title">Soupe à l'oignon</h5>
-        </div>
+    <% @recipes.each do |recipe| %>
+      <div class="col">
+        <%= link_to recipe_path(recipe), class: "text-decoration-none" do %>
+          <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+            <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
+            <div class="card-body">
+              <h5 class="card-title"><%= recipe.name %></h5>
+            </div>
+          </div>
+        <% end %>
       </div>
-    </div>
-    <div class="col">
-      <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-        <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
-        <div class="card-body">
-          <h5 class="card-title">Soupe à l'oignon</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-        <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
-        <div class="card-body">
-          <h5 class="card-title">Soupe à l'oignon</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-        <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
-        <div class="card-body">
-          <h5 class="card-title">Soupe à l'oignon</h5>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
