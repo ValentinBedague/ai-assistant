@@ -1,2 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.card:hover {
+  transform: scale(1.03);
+}
+.card-category:hover {
+  transform: scale(1.03);
+}
