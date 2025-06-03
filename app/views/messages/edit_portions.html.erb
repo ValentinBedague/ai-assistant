@@ -1,0 +1,7 @@
+<h1>Modify portions of the recipe</h1>
+<%= simple_form_for [@recipe, @message] do |f| %>
+  <p>Your recipe if for <%= @recipe.portions %> people.</p>
+  <p>For how many people do you want to cook this recipe ?</p>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
