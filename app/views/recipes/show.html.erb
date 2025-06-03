@@ -1,26 +1,27 @@
-<div class="container vh-100 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg w-100 d-flex flex-column justify-content-between" style="max-width: 600px; border-radius: 12px;">
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card shadow-lg w-100 d-flex flex-column justify-content-between" style="max-width: 600px; border-radius: 12px; overflow: hidden;">
 
-    <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg"
-         class="card-img-top"
-         style="height: 200px; object-fit: cover;"
-         alt="recipe image">
+    <div style="height: 300px; overflow: hidden;">
+      <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg"
+           class="w-100"
+           style="height: 100%; object-fit: cover; object-position: center;"
+           alt="recipe image">
+    </div>
 
     <div class="card-body text-center">
       <h1 class="card-title mb-4"><%= @recipe.name %></h1>
 
-      <h5 class="text-start text-muted">Ingrédients</h5>
+      <h5 class="text-start">Portions</h5>
+      <p class="text-start"><%= simple_format(" Recipe for #{@recipe.portions} people") %></p>
+      <%= link_to "🙋‍♂️ Change portions", edit_portions_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
+
+      <h5 class="text-start">Ingrédients</h5>
       <p class="text-start"><%= simple_format(@recipe.ingredients) %></p>
+      <%= link_to "🍆 Change ingredients", edit_ingredients_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
 
-      <h5 class="text-start text-muted mt-4">Préparation</h5>
+      <h5 class="text-start">Préparation</h5>
       <p class="text-start"><%= simple_format(@recipe.description) %></p>
-    </div>
-
-    <div class="card-footer d-flex justify-content-around bg-white border-0 pb-4">
-      <%= link_to "Change portions", edit_portions_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
-      <%= link_to "Change ingredients", edit_portions_recipe_messages_path(@recipe), class: "btn btn-outline-primary btn-sm" %>
-      <%= link_to "Diet recipe", edit_portions_recipe_messages_path(@recipe), method: :post, class: "btn btn-outline-success btn-sm" %>
-
+      <%= link_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), method: :post, class: "btn btn-outline-secondary btn-sm" %>
     </div>
 
   </div>
