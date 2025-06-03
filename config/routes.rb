@@ -9,12 +9,20 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :recipes, only: [:index, :new, :create, :show, :update] do
-    resources :messages, only: [:index, :new, :create]
+  resources :recipes, only: [:index, :new, :create, :show] do
+    resources :messages, only: [:index] do
+      collection do
+        get :edit_portions
+        post :run_edit_portions
 
-    member do
-      get :edit_portions
-      get :edit_ingredients
+        get :edit_ingredients
+        post :run_edit_ingredients
+
+        post :run_low_calories
+
+        get :chat
+        post :run_chat
+      end
     end
   end
 end
