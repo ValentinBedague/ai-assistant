@@ -7,3 +7,86 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Recipe.destroy_all
+puts "Recipes destroyed ❎"
+Message.destroy_all
+puts "Messages destroyed ❎"
+
+puts "Creating recipes..."
+
+Recipe.create!(
+    name: "Pancakes moelleux",
+    portions: 4,
+    ingredients:  "200g farine, 2 œufs, 300ml lait, 1 sachet levure, 1 c. à soupe sucre, 1 pincée sel",
+    description: " 1. Dans un saladier, mélange la farine, la levure, le sucre et le sel.
+    2. Ajoute les œufs, puis le lait progressivement en fouettant.
+    3. Laisse reposer la pâte 10 minutes.
+    4. Fais cuire des petites louches de pâte dans une poêle chaude huilée.
+    5. Retourne quand des bulles se forment. Dore de chaque côté."
+  )
+puts " a Pancakes moelleux recipe has been created ✅"
+
+Recipe.create!(
+    name: "Salade quinoa avocat",
+    portions: 2,
+    ingredients:  "150g quinoa, 1 avocat, 1 citron, 1 poignée roquette, 1 c. à soupe huile d’olive, sel, poivre",
+    description: "1. Fais cuire le quinoa dans de l'eau bouillante pendant 12 minutes.
+    2. Égoutte et laisse refroidir.
+    3. Coupe l'avocat en dés, arrose de jus de citron.
+    4. Mélange tous les ingrédients dans un saladier.
+    5. Assaisonne avec l’huile, sel et poivre. Sers frais."
+  )
+puts " a Salade quinoa avocat recipe has been created ✅"
+
+Recipe.create!(
+    name: "Curry de légumes coco",
+    portions: 3,
+    ingredients:  "1 oignon, 2 carottes, 1 courgette, 200ml lait de coco, 1 c. à soupe pâte de curry, 1 c. à soupe huile",
+    description: " 1. Émince l’oignon, coupe les légumes en dés.
+    2. Fais revenir l’oignon dans l’huile jusqu’à ce qu’il soit doré.
+    3. Ajoute les légumes et fais revenir 5 minutes.
+    4. Ajoute la pâte de curry et le lait de coco.
+    5. Laisse mijoter à feu doux pendant 15 à 20 minutes."
+  )
+puts " a Curry de légumes coco recipe has been created ✅"
+
+puts "3 recipes have been created 🚀"
+
+
+# require 'faker'
+
+# Recipe.destroy_all
+# puts "Recipes destroyed ❎"
+# Message.destroy_all
+# puts "Messages destroyed ❎"
+
+# puts "Creating recipes..."
+
+# NBSEED = 5
+
+# NBSEED.times do |i|
+#   name = Faker::Food.dish
+#   portions = rand(1..8)
+#   ingredients = []
+#   descriptions = []
+
+#   15.times do
+#     ingredients << "#{Faker::Food.ingredient} - #{(50..1000).step(50).to_a.sample}g"
+#   end
+
+#   15.times do
+#     descriptions << "#{Faker::Food.description}"
+#   end
+
+
+#   Recipe.create!(
+#     name: name,
+#     portions: portions,
+#     ingredients: ingredients.sample(rand(4..6)).join("\n"),
+#     description: descriptions.sample(rand(4..6)).join("\n")
+#   )
+#   puts " a #{name} recipe has been created ✅"
+# end
+
+# puts "#{NBSEED} #{'recipe'.pluralize(NBSEED)} have been created 🚀"
