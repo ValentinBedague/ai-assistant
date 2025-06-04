@@ -1,0 +1,9 @@
+<h1>Recalculated ingredients</h1>
+<div>Ingredients for <%= @recipe.portions %> portions are:</div>
+<div class="border bg-light rounded p-2">
+  <%= @recipe.ingredients %></p>
+</div>
+<div class="mt-2">Now if you need <%= @new_portions %> portions, ingredients are:</div>
+<div class="border bg-light rounded p-2">
+  <%= Message.last.content %></p>
+</div>

@@ -1,3 +1,3 @@
 class Message < ApplicationRecord
-  belongs_to :recipe_id
+  belongs_to :recipe
 end
