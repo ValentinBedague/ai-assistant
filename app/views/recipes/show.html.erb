@@ -21,7 +21,7 @@
 
       <h5 class="text-start">Préparation</h5>
       <p class="text-start"><%= @recipe.description_displayed == nil ? simple_format(@recipe.description) : simple_format(@recipe.description_displayed)%></p>
-      <%= link_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), method: :post, class: "btn btn-outline-secondary btn-sm" %>
+      <%= button_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
     </div>
 
   </div>

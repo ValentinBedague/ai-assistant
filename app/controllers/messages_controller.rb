@@ -27,6 +27,30 @@ class MessagesController < ApplicationController
   end
 
   def run_low_calories
+    @portion_prompt = "Help me make this recipe much lower in calories. You can substitute any ingredients. I need a single string that contains:
+
+      # The updated list of ingredients (just the list in bullet points, nothing else),
+
+      # Followed by a £ character as a separator,
+
+      # Then the updated description written step by step, using numbered bullet points (1. , 2. , 3. , etc.)."
+    @instruction = [SYSTEM_PROMPT, set_context].compact.join("\n\n")
+    @message = Message.new(role: "user", content: @portion_prompt, recipe: @recipe)
+    @chat = RubyLLM.chat
+    response = @chat.with_instructions(@instruction).ask(@message.content)
+    Message.create(role: "assistant", content: response.content, recipe: @recipe)
+
+    parts = Message.last.content.split("£",2)
+
+    @recipe.ingredients_displayed = parts[0]
+    @recipe.description_displayed = parts[1]
+
+    if @recipe.save
+      redirect_to @recipe, notice: "#{@recipe.name} has been succesfully updated ✅"
+
+    else
+      redirect_to @recipe, status: :unprocessable_entity
+    end
   end
 
   def chat
