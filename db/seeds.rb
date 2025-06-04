@@ -51,7 +51,32 @@ Recipe.create!(
   )
 puts " a Curry de légumes coco recipe has been created ✅"
 
-puts "3 recipes have been created 🚀"
+
+Recipe.create!(
+  name: "Salade de pois chiches à la feta",
+  portions: 2,
+  ingredients: "200g pois chiches cuits, 100g feta, 1 tomate, 1/2 oignon rouge, 1 c. à soupe huile d’olive, jus d’un demi citron, sel, poivre",
+  description: "1. Égoutte les pois chiches et rince-les.
+  2. Coupe la tomate et l’oignon en petits dés, émiette la feta.
+  3. Mélange tous les ingrédients dans un saladier.
+  4. Arrose d’huile d’olive et de jus de citron.
+  5. Sale, poivre, puis mélange délicatement et sers frais."
+)
+puts "Salade de pois chiches à la feta recipe has been created ✅"
+
+Recipe.create!(
+  name: "Nachos gratinés au cheddar",
+  portions: 4,
+  ingredients: "1 sachet de chips tortillas, 150g cheddar râpé, 1 petite boîte haricots rouges, 2 c. à soupe sauce salsa, 1 avocat, crème fraîche, jalapeños (optionnel)",
+  description: "1. Préchauffe le four à 200°C.
+  2. Étale les chips tortillas sur une plaque recouverte de papier cuisson.
+  3. Répartis les haricots rouges, la salsa et le cheddar râpé par-dessus.
+  4. Enfourne 5 à 8 minutes jusqu’à ce que le fromage soit fondu.
+  5. Ajoute des tranches d’avocat, une cuillerée de crème fraîche et des jalapeños au moment de servir."
+)
+puts "Nachos gratinés au cheddar recipe has been created ✅"
+
+puts "5 recipes have been created 🚀"
 
 
 # require 'faker'
