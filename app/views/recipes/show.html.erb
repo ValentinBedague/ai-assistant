@@ -9,7 +9,11 @@
     </div>
 
     <div class="card-body text-center">
-      <h1 class="card-title mb-4"><%= @recipe.name %></h1>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="card-title text-center flex-grow-1 m-0"><%= @recipe.name %></h1>
+        <%= button_to "🔄️ Reset",  reset_recipe_recipe_path(@recipe),method: :patch, class: "btn btn-outline-secondary btn-sm" %>
+      </div>
+
 
       <h5 class="text-start">Portions</h5>
       <p class="text-start"><%= @recipe.portions_displayed == nil ? simple_format(" Recipe for #{@recipe.portions} people") : simple_format(" Recipe for #{@recipe.portions_displayed} people")%></p>
