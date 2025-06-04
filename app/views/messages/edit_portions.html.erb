@@ -1,9 +1,9 @@
 <h1>Modify portions of the recipe</h1>
-<%= simple_form_for :recipe, url: run_edit_portions_recipe_messages_path(@recipe), method: :post, local: true, html: { data: { turbo: false } } do |f| %>
-  <p>Your recipe if currently for <%= @recipe.portions %> people.</p>
+<%= simple_form_for :recipe, url: run_edit_portions_recipe_messages_path(@recipe), method: :post do |f| %>
+  <p>Your recipe if currently for <%= @recipe.portions_displayed ? @recipe.portions_displayed : @recipe.portions %> people.</p>
   <div class="mb-3">
     <%= f.input :new_portions, label: "For how many people do you want to cook this recipe ?", input_html: {
-            value: @recipe.portions,
+            value: @recipe.portions_displayed ? @recipe.portions_displayed : @recipe.portions,
             min: 1,
             class: "form-control"
           },
