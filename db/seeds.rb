@@ -23,7 +23,8 @@ Recipe.create!(
     2. Ajoute les œufs, puis le lait progressivement en fouettant.
     3. Laisse reposer la pâte 10 minutes.
     4. Fais cuire des petites louches de pâte dans une poêle chaude huilée.
-    5. Retourne quand des bulles se forment. Dore de chaque côté."
+    5. Retourne quand des bulles se forment. Dore de chaque côté.",
+    url_image: 'https://www.allrecipes.com/thmb/FE0PiuuR0Uh06uVh1c2AsKjRGbc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-Good-old-Fashioned-Pancakes-mfs_002-0e249c95678f446291ebc9408ae64c05.jpg'
   )
 puts " a Pancakes moelleux recipe has been created ✅"
 
@@ -35,7 +36,8 @@ Recipe.create!(
     2. Égoutte et laisse refroidir.
     3. Coupe l'avocat en dés, arrose de jus de citron.
     4. Mélange tous les ingrédients dans un saladier.
-    5. Assaisonne avec l’huile, sel et poivre. Sers frais."
+    5. Assaisonne avec l’huile, sel et poivre. Sers frais.",
+    url_image: 'https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/HF201106_R208_W01_FR_QFR20161818-1_KB_Main_low-c8bd6ee4.jpg'
   )
 puts " a Salade quinoa avocat recipe has been created ✅"
 
@@ -47,7 +49,8 @@ Recipe.create!(
     2. Fais revenir l’oignon dans l’huile jusqu’à ce qu’il soit doré.
     3. Ajoute les légumes et fais revenir 5 minutes.
     4. Ajoute la pâte de curry et le lait de coco.
-    5. Laisse mijoter à feu doux pendant 15 à 20 minutes."
+    5. Laisse mijoter à feu doux pendant 15 à 20 minutes.",
+    url_image: 'https://wordpress.potagercity.fr/wp-content/uploads/2019/09/recette_curry_legume.jpg'
   )
 puts " a Curry de légumes coco recipe has been created ✅"
 
@@ -60,7 +63,8 @@ Recipe.create!(
   2. Coupe la tomate et l’oignon en petits dés, émiette la feta.
   3. Mélange tous les ingrédients dans un saladier.
   4. Arrose d’huile d’olive et de jus de citron.
-  5. Sale, poivre, puis mélange délicatement et sers frais."
+  5. Sale, poivre, puis mélange délicatement et sers frais.",
+  url_image: 'https://fodyfoods.ca/cdn/shop/articles/Chickpea_Salad_1.jpg?v=1682344636'
 )
 puts "Salade de pois chiches à la feta recipe has been created ✅"
 
@@ -72,7 +76,8 @@ Recipe.create!(
   2. Étale les chips tortillas sur une plaque recouverte de papier cuisson.
   3. Répartis les haricots rouges, la salsa et le cheddar râpé par-dessus.
   4. Enfourne 5 à 8 minutes jusqu’à ce que le fromage soit fondu.
-  5. Ajoute des tranches d’avocat, une cuillerée de crème fraîche et des jalapeños au moment de servir."
+  5. Ajoute des tranches d’avocat, une cuillerée de crème fraîche et des jalapeños au moment de servir.",
+  url_image: 'https://img.hellofresh.com/f_auto,fl_lossy,q_auto,w_1200/hellofresh_s3/image/sheet-pan-nachos-485d5dcf.jpg'
 )
 puts "Nachos gratinés au cheddar recipe has been created ✅"
 

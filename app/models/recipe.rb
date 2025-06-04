@@ -1,3 +1,3 @@
 class Recipe < ApplicationRecord
-  has_many :messages
+  has_many :messages, dependent: :destroy
 end
