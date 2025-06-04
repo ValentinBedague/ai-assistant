@@ -19,7 +19,7 @@
     <% @recipes.each do |recipe| %>
       <div class="col">
         <%= link_to recipe_path(recipe), class: "text-decoration-none" do %>
-          <div class="card border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+          <div class="card card-index border-0" style="width: 18rem; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
             <img src="https://assets.afcdn.com/recipe/20210104/116953_w1024h1024c1cx806cy863cxt0cyt382cxb1641cyb1350.jpg" class="card-img-top" alt="recipe image">
             <div class="card-body">
               <h5 class="card-title"><%= recipe.name %></h5>
