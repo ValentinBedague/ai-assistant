@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :recipes, only: [:index, :new, :create, :show] do
+    collection do
+      get :new_via_img
+    end
     member do
       patch :reset_recipe
     end

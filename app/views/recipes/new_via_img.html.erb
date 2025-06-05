@@ -1,0 +1,7 @@
+<h1>Upload your image</h1>
+
+<%= simple_form_for(@recipe) do |f| %>
+
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
