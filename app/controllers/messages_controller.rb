@@ -24,6 +24,35 @@ class MessagesController < ApplicationController
   end
 
   def run_edit_ingredients
+    @replaced_ingredients = params.require(:recipe).permit(:replaced_ingredients)[:replaced_ingredients]
+    @reason = params.require(:recipe).permit(:reason)[:reason]
+    @ingredients_prompt = "
+        Can you replace the following ingredients: #{@replaced_ingredients}?
+
+        The reason why I want to replace it is that #{@reason}.
+
+        # I need you to keep the original list of ingredients except the #{@replaced_ingredients} and update it with the new ingredient (just the list in bullet points).
+
+        # Followed by a £ character as a separator,
+
+        # Then the updated description given the new ingredients, written step by step, using numbered bullet points (1. , 2. , 3. , etc.)."
+
+    @instruction = [SYSTEM_PROMPT, set_context].compact.join("\n\n")
+    @message = Message.new(role: "user", content: @ingredients_prompt, recipe: @recipe)
+    @chat = RubyLLM.chat
+    response = @chat.with_instructions(@instruction).ask(@message.content)
+    Message.create(role: "assistant", content: response.content, recipe: @recipe)
+    parts = Message.last.content.split("£",2)
+
+    @recipe.ingredients_displayed = parts[0]
+    @recipe.description_displayed = parts[1]
+
+    if @recipe.save
+      redirect_to @recipe, notice: "#{@recipe.name} has been succesfully updated ✅"
+
+    else
+      redirect_to @recipe, status: :unprocessable_entity
+    end
   end
 
   def run_low_calories
