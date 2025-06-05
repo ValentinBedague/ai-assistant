@@ -1,0 +1,18 @@
+<div class="position-relative" style="overflow: auto;">
+
+  <%= link_to "← Back", recipe_chats_path(@chat.recipe) %> /
+  <%= link_to @chat.recipe.name, recipe_path(@chat.recipe) %>
+
+  <div id="chat_title">
+  <h1><%= @chat.title %></h1>
+  </div>
+
+  <div id="messages">
+    <%= render "chat_messages/messages", chat_messages: @chat.chat_messages %>
+  </div>
+
+</div>
+
+<div id="new_message">
+  <%= render "chat_messages/form", chat: @chat, chat_message: @chat_message %>
+</div>

@@ -19,11 +19,11 @@
       <p class="text-start"><%= @recipe.portions_displayed == nil ? simple_format(" Recipe for #{@recipe.portions} people") : simple_format(" Recipe for #{@recipe.portions_displayed} people")%></p>
       <%= link_to "🙋‍♂️ Change portions", edit_portions_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
 
-      <h5 class="text-start">Ingrédients</h5>
+      <h5 class="text-start">Ingredients</h5>
       <p class="text-start"><%= @recipe.ingredients_displayed == nil ? simple_format(@recipe.ingredients) : simple_format(@recipe.ingredients_displayed)%></p>
       <%= link_to "🍆 Change ingredients", edit_ingredients_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
 
-      <h5 class="text-start">Préparation</h5>
+      <h5 class="text-start">Instructions</h5>
       <p class="text-start"><%= @recipe.description_displayed == nil ? simple_format(@recipe.description) : simple_format(@recipe.description_displayed)%></p>
       <%= button_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
     </div>
