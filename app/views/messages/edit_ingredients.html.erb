@@ -1,0 +1,18 @@
+<h1>Modify ingredients of the recipe</h1>
+<%= simple_form_for :recipe, url: run_edit_ingredients_recipe_messages_path(@recipe), method: :post do |f| %>
+  <p>Your recipe currently contains : <br><%= @recipe.ingredients_displayed ? @recipe.ingredients_displayed : @recipe.ingredients %></p>
+  <div class="mb-3">
+    <%= f.input :replaced_ingredients, label: "Which ingredients would you like to change?", input_html: {
+            value: "",
+            class: "form-control"
+          }
+     %>
+
+    <%= f.input :reason, label: "What is the reason of this change?", input_html: {
+            value: "",
+            class: "form-control"
+          }
+    %>
+  </div>
+  <%= f.button :submit, "Modifying your recipe!", class: "btn btn-primary" %>
+<% end %>
