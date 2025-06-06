@@ -3,8 +3,8 @@
   <%= link_to "← Back", recipe_chats_path(@chat.recipe) %> /
   <%= link_to @chat.recipe.name, recipe_path(@chat.recipe) %>
 
-  <div id="chat_title">
-  <h1><%= @chat.title %></h1>
+  <div id="chat_title" class= "mt-5">
+    <h1><%= @chat.title %></h1>
   </div>
 
   <div id="messages">
@@ -12,7 +12,10 @@
   </div>
 
 </div>
-
-<div id="new_message">
-  <%= render "chat_messages/form", chat: @chat, chat_message: @chat_message %>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div id="new_message" class= "card bg-white rounded-4 p-1">
+      <%= render "chat_messages/form", chat: @chat, chat_message: @chat_message %>
+    </div>
+  </div>
 </div>

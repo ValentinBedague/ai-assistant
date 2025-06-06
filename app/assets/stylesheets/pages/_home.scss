@@ -1,1 +1,13 @@
 // Specific CSS for your home-page
+body {
+  background-color: #E5EBE0 ;
+}
+
+h1, h2, h5 {
+  color: $green;
+}
+
+a {
+  text-decoration: none;
+  color: $green;
+}

@@ -1,22 +1,24 @@
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h1 class="mb-0">Modify ingredients of <%= @recipe.name %></h1>
-  <%= link_to "↩️ back to the recipe", recipe_path(@recipe), class: 'btn btn-outline-primary  btn-sm' %>
-</div>
-
-<%= simple_form_for :recipe, url: run_edit_ingredients_recipe_messages_path(@recipe), method: :post do |f| %>
-  <p>Your recipe currently contains : <br><%= @recipe.ingredients_displayed ? @recipe.ingredients_displayed : @recipe.ingredients %></p>
-  <div class="mb-3">
-    <%= f.input :replaced_ingredients, label: "Which ingredients would you like to change?", input_html: {
-            value: "",
-            class: "form-control"
-          }
-     %>
-
-    <%= f.input :reason, label: "What is the reason of this change?", input_html: {
-            value: "",
-            class: "form-control"
-          }
-    %>
+<div class="card-body bg-white p-5 rounded-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Modify ingredients of <%= @recipe.name %></h1>
+    <%= link_to "↩️ back to the recipe", recipe_path(@recipe), class: 'btn btn-ghost  btn-sm' %>
   </div>
-  <%= f.button :submit, "Modifying your recipe!", class: "btn btn-primary" %>
-<% end %>
+
+  <%= simple_form_for :recipe, url: run_edit_ingredients_recipe_messages_path(@recipe), method: :post do |f| %>
+    <p>Your recipe currently contains : <br><%= @recipe.ingredients_displayed ? @recipe.ingredients_displayed : @recipe.ingredients %></p>
+    <div class="mb-3">
+      <%= f.input :replaced_ingredients, label: "Which ingredients would you like to change?", input_html: {
+              value: "",
+              class: "form-control"
+            }
+      %>
+
+      <%= f.input :reason, label: "What is the reason of this change?", input_html: {
+              value: "",
+              class: "form-control"
+            }
+      %>
+    </div>
+    <%= f.button :submit, "Modifying your recipe!", class: "btn btn-ghost" %>
+  <% end %>
+</div>
