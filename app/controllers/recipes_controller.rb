@@ -75,7 +75,7 @@ class RecipesController < ApplicationController
     ingredients = parts[2]
     description = parts[3]
 
-    if @recipe.update(name: name, portions: portions, ingredients: ingredients, description: description)
+    if @recipe.update(name: name, portions: portions, ingredients: ingredients, description: description, url_image: "https://www.ensto-ebs.fr/modules/custom/legrand_ecat/assets/img/no-image.png")
       redirect_to @recipe, notice: "#{@recipe.name} recipe was successfully created!"
     else
       render :new, status: :unprocessable_entity
