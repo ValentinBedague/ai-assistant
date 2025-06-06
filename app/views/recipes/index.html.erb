@@ -1,4 +1,4 @@
-<div class="cards">
+<div class="cards py-5">
   <%= link_to new_recipe_path, class: "text-decoration-none" do %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
       Create a recipe
@@ -16,16 +16,17 @@
   <% end %>
 </div>
 
+<h2>My recipes</h2>
 <div class="text-center my-5">
   <div class="row">
     <% @recipes.each do |recipe| %>
       <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex mb-4">
         <%= link_to recipe_path(recipe), class: "text-decoration-none w-100" do %>
-          <div class="card card-index border-0 h-100 w-100" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+          <div class="card card-index border-0 h-100 w-100 rounded-4" style="box-shadow: 0 0 15px rgba(0,0,0,0.2);">
             <img src="<%= recipe.url_image %>"
                  class="card-img-top"
                  alt="recipe image"
-                 style="height: 180px; object-fit: cover;  object-position: top;">
+                 style="height: 180px; object-fit: cover;  object-position: top; border-top-left-radius: 4px; border-top-right-radius: 4px;">
             <div class="card-body d-flex flex-column justify-content-end">
               <h5 class="card-title"><%= recipe.name %></h5>
             </div>
