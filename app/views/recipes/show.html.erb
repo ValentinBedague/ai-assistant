@@ -29,11 +29,14 @@
   <div class="col-4 justify-content-center">
     <h5 class="text-center">Ask you AI assistant!</h5>
     <div class="d-flex flex-column align-items-center p-2">
+
       <%= link_to "🙋‍♂️ Change portions", edit_portions_recipe_messages_path(@recipe), class: "my-2 btn btn-ghost btn-sm" %>
       <%= link_to "🍆 Change ingredients", edit_ingredients_recipe_messages_path(@recipe), class: "my-2 btn btn-ghost btn-sm" %>
       <%= button_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), class: "my-2 btn btn-ghost btn-sm" %>
       <%= link_to "🪄 Chat with the assistant", recipe_chats_path(@recipe), class: "my-2 btn btn-ghost btn-sm" %>
       <%= button_to "🔄️ Reset",  reset_recipe_recipe_path(@recipe),method: :patch, class: "my-2 btn btn-ghost btn-sm" %>
+      <%= button_to "🖼️ generate img",  run_generate_img_recipe_messages_path(@recipe), class: "my-2 btn btn-ghost btn-sm" %>
+
     </div>
   </div>
 </div>
