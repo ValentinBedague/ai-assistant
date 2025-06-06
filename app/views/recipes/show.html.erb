@@ -1,32 +1,41 @@
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg w-100 d-flex flex-column justify-content-between" style="max-width: 600px; border-radius: 12px; overflow: hidden;">
+<div class="container d-flex">
+  <div class="col-8 justify-content-center">
+    <div class="card shadow-lg w-100 d-flex flex-column justify-content-between" style="max-width: 600px; border-radius: 12px; overflow: hidden;">
 
-    <div style="height: 300px; overflow: hidden;">
-      <img src="<%= @recipe.url_image %>"
-           class="w-100"
-           style="height: 100%; object-fit: cover; object-position: center;"
-           alt="recipe image">
-    </div>
-
-    <div class="card-body text-center">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="card-title text-center flex-grow-1 m-0"><%= @recipe.name %></h1>
-        <%= button_to "🔄️ Reset",  reset_recipe_recipe_path(@recipe),method: :patch, class: "btn btn-outline-secondary btn-sm" %>
+      <div style="height: 300px; overflow: hidden;">
+        <img src="<%= @recipe.url_image %>"
+            class="w-100"
+            style="height: 100%; object-fit: cover; object-position: center;"
+            alt="recipe image">
       </div>
 
+      <div class="card-body text-center">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="card-title text-center flex-grow-1 m-0"><%= @recipe.name %></h1>
+        </div>
 
-      <h5 class="text-start">Portions</h5>
-      <p class="text-start"><%= @recipe.portions_displayed == nil ? simple_format(" Recipe for #{@recipe.portions} people") : simple_format(" Recipe for #{@recipe.portions_displayed} people")%></p>
-      <%= link_to "🙋‍♂️ Change portions", edit_portions_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
 
-      <h5 class="text-start">Ingrédients</h5>
-      <p class="text-start"><%= @recipe.ingredients_displayed == nil ? simple_format(@recipe.ingredients) : simple_format(@recipe.ingredients_displayed)%></p>
-      <%= link_to "🍆 Change ingredients", edit_ingredients_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
+        <h5 class="text-start">Portions</h5>
+        <p class="text-start"><%= @recipe.portions_displayed == nil ? simple_format(" Recipe for #{@recipe.portions} people") : simple_format(" Recipe for #{@recipe.portions_displayed} people")%></p>
 
-      <h5 class="text-start">Préparation</h5>
-      <p class="text-start"><%= @recipe.description_displayed == nil ? simple_format(@recipe.description) : simple_format(@recipe.description_displayed)%></p>
-      <%= button_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), class: "btn btn-outline-secondary btn-sm" %>
+        <h5 class="text-start">Ingredients</h5>
+        <p class="text-start"><%= @recipe.ingredients_displayed == nil ? simple_format(@recipe.ingredients) : simple_format(@recipe.ingredients_displayed)%></p>
+
+        <h5 class="text-start">Instructions</h5>
+        <p class="text-start"><%= @recipe.description_displayed == nil ? simple_format(@recipe.description) : simple_format(@recipe.description_displayed)%></p>
+      </div>
+
     </div>
+  </div>
 
+  <div class="col-4 justify-content-center">
+    <h5 class="text-center">Ask you AI assistant!</h5>
+    <div class="d-flex flex-column align-items-center p-2">
+      <%= link_to "🙋‍♂️ Change portions", edit_portions_recipe_messages_path(@recipe), class: "my-2 btn btn-outline-secondary btn-sm" %>
+      <%= link_to "🍆 Change ingredients", edit_ingredients_recipe_messages_path(@recipe), class: "my-2 btn btn-outline-secondary btn-sm" %>
+      <%= button_to "🥦 Diet recipe", run_low_calories_recipe_messages_path(@recipe), class: "my-2 btn btn-outline-secondary btn-sm" %>
+      <%= link_to "🪄 Chat with the assistant", recipe_chats_path(@recipe), class: "my-2 btn btn-outline-secondary btn-sm" %>
+      <%= button_to "🔄️ Reset",  reset_recipe_recipe_path(@recipe),method: :patch, class: "my-2 btn btn-outline-secondary btn-sm" %>
+    </div>
   </div>
 </div>

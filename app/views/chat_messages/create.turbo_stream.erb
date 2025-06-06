@@ -1,0 +1,14 @@
+<% if @chat.previous_changes["title"].present? %>
+  <%= turbo_stream.replace "chat_title" do %>
+    <h1><%= @chat.title %></h1>
+  <% end %>
+<% end %>
+
+<% @chat.reload %>
+<%= turbo_stream.append "messages" do %>
+  <%= render "chat_messages/messages", chat_messages: @chat.chat_messages.last(2) %>
+<% end %>
+
+<%= turbo_stream.replace "new_message" do %>
+  <%= render "chat_messages/form", chat: @chat, chat_message: ChatMessage.new %>
+<% end %>

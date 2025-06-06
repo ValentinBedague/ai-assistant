@@ -12,6 +12,9 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    if @recipe.url_image == ""
+      @recipe.url_image = "https://www.ensto-ebs.fr/modules/custom/legrand_ecat/assets/img/no-image.png"
+    end
     if @recipe.save
       redirect_to @recipe, notice: "#{@recipe.name} recipe was successfully created!"
     else

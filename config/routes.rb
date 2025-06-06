@@ -31,5 +31,10 @@ Rails.application.routes.draw do
         post :run_chat
       end
     end
+    resources :chats, only: [:index, :create]
+  end
+
+  resources :chats, only: :show do
+    resources :chat_messages, only: [:create]
   end
 end
