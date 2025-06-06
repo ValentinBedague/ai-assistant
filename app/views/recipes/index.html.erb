@@ -5,9 +5,11 @@
     </div>
   <% end %>
 
+  <%= link_to new_via_url_recipes_path, class: "text-decoration-none" do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
     Import a recipe from the web
   </div>
+  <% end %>
 
   <%= link_to new_via_img_recipes_path, class: "text-decoration-none" do %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">

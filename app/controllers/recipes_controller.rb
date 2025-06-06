@@ -66,7 +66,6 @@ class RecipesController < ApplicationController
     @message = Message.new(role: "user", content: @img_prompt, recipe: @recipe)
     @chat = RubyLLM.chat(model: "gpt-4o")
     response = @chat.with_instructions(@instruction).ask(@message.content, with: {image: @recipe.image.url})
-
     Message.create(role: "assistant", content: response.content, recipe: @recipe)
     parts = Message.last.content.split("£",4)
 
@@ -75,10 +74,64 @@ class RecipesController < ApplicationController
     ingredients = parts[2]
     description = parts[3]
 
-    if @recipe.update(name: name, portions: portions, ingredients: ingredients, description: description)
+    if @recipe.update(name: name, portions: portions, ingredients: ingredients, description: description, url_image: "https://www.ensto-ebs.fr/modules/custom/legrand_ecat/assets/img/no-image.png")
       redirect_to @recipe, notice: "#{@recipe.name} recipe was successfully created!"
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def new_via_url
+    @recipe = Recipe.new
+  end
+
+  def create_via_url
+    @url = params[:url_recipe][:url]
+
+    # Préparer le prompt pour extraire les informations de la recette à partir de l'URL
+    @web_prompt = "
+      Here is the url of a recipe page : #{@url}. The page contains the following four key elements:
+      1. The recipe name
+      2. The number of servings (people it is made for)
+      3. A list of ingredients
+      4. Step-by-step instructions
+
+      Analyze the page at the URL provided and extract these four elements:
+      - The name of the recipe
+      - The number of servings
+      - The list of ingredients (use bullet points -)
+      - The step-by-step instructions (use numbered steps)
+
+      ⚠️ Do not add any explanations, headers, or commentary. Return only the final string in the following structure:
+      The name of the recipe
+      £ (as a separator)
+      The number of servings
+      £
+      The list of ingredients
+      £
+      The step-by-step instructions"
+
+    @instruction = SYSTEM_PROMPT
+
+    @message = Message.new(role: "user", content: @web_prompt)
+    @chat = RubyLLM.chat(model: "gpt-4o")
+    response = @chat.with_instructions(@instruction).ask(@message.content)
+
+    Message.create(role: "assistant", content: response.content)
+    raise
+    parts = Message.last.content.split("£", 4)
+
+    name = parts[0]
+    portions = parts[1]
+    ingredients = parts[2]
+    description = parts[3]
+
+    @recipe = Recipe.new(name: name, portions: portions, ingredients: ingredients, description: description)
+
+    if @recipe.save
+      redirect_to @recipe, notice: "#{@recipe.name} recipe was successfully created!"
+    else
+      render :new_via_url, status: :unprocessable_entity
     end
   end
 
@@ -102,7 +155,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :portions, :ingredients, :description, :url_image, :image)
+    params.require(:recipe).permit(:name, :portions, :ingredients, :description, :url_image, :image, :url)
   end
 
 end

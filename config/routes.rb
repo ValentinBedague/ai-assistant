@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     collection do
       get :new_via_img
       post :create_via_img
+
+      get :new_via_url
+      post :create_via_url
     end
     member do
       patch :reset_recipe
