@@ -104,7 +104,8 @@ def run_generate_img
   image_url = image&.url
 
   if image_url.present?
-    @recipe.update(url_image: image_url)
+    uploaded_image = Cloudinary::Uploader.upload(image_url)
+    @recipe.update(url_image: uploaded_image["secure_url"])
     redirect_to @recipe, notice: "Image generated and recipe updated ✅"
   else
     redirect_to @recipe, alert: "Failed to generate image ❌"
