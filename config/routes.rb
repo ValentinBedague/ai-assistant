@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :new, :create, :show] do
     collection do
       get :new_via_img
+      post :create_via_img
     end
     member do
       patch :reset_recipe
