@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
         post :run_low_calories
 
+        post :run_generate_img
+
         get :chat
         post :run_chat
       end

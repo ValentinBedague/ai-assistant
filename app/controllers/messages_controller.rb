@@ -82,6 +82,40 @@ class MessagesController < ApplicationController
     end
   end
 
+def run_generate_img
+  prompt_text = <<~PROMPT
+    You are a professional chef and food stylist. Your task is to create an image based on the following recipe details:
+
+    - Recipe Name: #{@recipe.name}
+    - Number of Servings: #{@recipe.portions}
+    - Ingredients: #{@recipe.ingredients}
+    - Instruction of the recipe: #{@recipe.description}
+
+    Please create an image that showcases the dish with attention to color, texture, and presentation. The image should depict the dish in a realistic style, with a focus on making it look delicious and visually enticing. The scene should include:
+    - A well-plated dish in a kitchen or dining setting.
+    - The main ingredients presented in an artistic and appetizing way.
+    - A neutral or rustic background that complements the food.
+    - Soft, natural lighting that highlights the textures and colors of the food.
+
+    Make sure the image is high-quality, realistic, and aesthetically pleasing, conveying the feeling of a professional food photography shot.
+  PROMPT
+
+  image = RubyLLM.paint(prompt_text, model: "dall-e-3", size: "1024x1024")
+  image_url = image&.url
+
+  if image_url.present?
+    @recipe.update(url_image: image_url)
+    redirect_to @recipe, notice: "Image generated and recipe updated ✅"
+  else
+    redirect_to @recipe, alert: "Failed to generate image ❌"
+  end
+end
+
+
+
+
+
+
   def chat
   end
 

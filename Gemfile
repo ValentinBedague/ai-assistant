@@ -53,6 +53,8 @@ gem "devise"
 gem "ruby_llm"
 gem "cloudinary"
 gem "image_processing", "~> 1.2"
+gem "ruby-openai", "~> 5.0" # ou la dernière version disponible
+
 
 
 group :development, :test do
