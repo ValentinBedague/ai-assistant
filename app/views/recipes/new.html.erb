@@ -3,17 +3,18 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="mb-0">Your new recipe</h1>
-      <%= link_to "↩️ back to home", recipes_path, class: 'btn btn-outline-primary  btn-sm' %>
+      <%= link_to "↩️ back to home", recipes_path, class: 'btn btn-ghost  btn-sm' %>
     </div>
-
-    <%= simple_form_for @recipe do |f| %>
-      <%= f.input :name %>
-      <%= f.input :portions %>
-      <%= f.input :ingredients %>
-      <%= f.input :description %>
-      <%= f.input :url_image %>
-      <%= f.submit "🍴Add the recipe", class: "btn btn-primary" %>
-    <% end %>
+    <div class="card bg-white rounded-4 p-5">
+      <%= simple_form_for @recipe do |f| %>
+        <%= f.input :name %>
+        <%= f.input :portions %>
+        <%= f.input :ingredients %>
+        <%= f.input :description %>
+        <%= f.input :url_image %>
+        <%= f.submit "🍴Add the recipe", class: "btn btn-ghost" %>
+      <% end %>
+    </div>
 
   </div>
 </div>

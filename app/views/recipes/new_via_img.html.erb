@@ -1,7 +1,12 @@
-<h1>Upload your image</h1>
+<h1 class="mb-5">Upload your image</h1>
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div class="card bg-white rounded-4 p-5">
+      <%= simple_form_for(@recipe, url: create_via_img_recipes_path) do |f| %>
 
-<%= simple_form_for(@recipe, url: create_via_img_recipes_path) do |f| %>
-
-  <%= f.input :image, as: :file %>
-  <%= f.submit %>
-<% end %>
+        <%= f.input :image, as: :file %>
+        <%= f.submit "Create recipe", class: "btn btn-ghost" %>
+      <% end %>
+    </div>
+  </div>
+</div>

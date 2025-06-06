@@ -1,6 +1,13 @@
 .navbar-lewagon {
   justify-content: flex-start;
   background: white;
+  color: $green;
+  a {
+    color: $green;
+    &:hover{
+      color: $green;
+    }
+  }
 }
 
 .navbar-lewagon .navbar-collapse {

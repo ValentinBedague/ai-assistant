@@ -1,6 +1,9 @@
 <div class="position-sticky bg-white p-2" style="bottom: 0;">
-<%= simple_form_for [chat, chat_message] do |f| %>
-  <%= f.input :content, placeholder: "Ask a question", required: true, label: false %>
-  <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
-<% end %>
+<div class="bg-white rounded">
+  <%= simple_form_for [chat, chat_message], class:"rounded-4" do |f| %>
+    <%= f.input :content, placeholder: "Ask a question", required: true, label: false %>
+    <%= f.button :submit, 'Ask LLM', class: 'btn btn-ghost' %>
+  <% end %>
+  </div>
+
 </div>
