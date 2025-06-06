@@ -1,4 +1,7 @@
-<h1>Chats for <%= @recipe.name %></h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h1 class="mb-0">Chats for <%= @recipe.name %></h1>
+  <%= link_to "↩️ back to the recipe", recipe_path(@recipe), class: 'btn btn-outline-primary  btn-sm' %>
+</div>
 
 <div class="mb-4">
   <% if @chats.any? %>
